@@ -4,7 +4,7 @@
 
 I'm a Software Engineering student at BYU-Idaho with a unique background before pivoting to software development. I bring business acumen, analytical thinking, and a passion for building elegant solutions to complex problems.
 
-🎯 **Currently seeking Spring/Summer 2026 internships** in full-stack development, backend engineering, or QA roles (Idaho, Utah, or remote)
+🎯 **Currently seeking Summer/Fall 2026 internships** in full-stack development, backend engineering, or QA roles (Idaho, Utah, or remote)
 
 ---
 
@@ -100,15 +100,12 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 
 ### 📊 GitHub Stats
 
-![Ema's GitHub Stats](https://github-readme-stats-omega-coral-75.vercel.app/api?username=ejgdr&show_icons=true&theme=radical&include_all_commits=true&count_private=true&hide_border=true)
-
-![Top Languages](https://github-readme-stats-omega-coral-75.vercel.app/api/top-langs/?username=ejgdr&layout=compact&theme=radical&include_private=true&hide=jupyter%20notebook&hide_border=true&langs_count=8)
 ---
 
 ### 🎓 Education
 
 **Bachelor of Science in Software Engineering**  
-Brigham Young University - Idaho | GPA: 3.90 | Expected Jul 2026
+Brigham Young University - Idaho | GPA: 3.91 | Expected Dec 2026
 
 **Associate of Applied Science in Applied Technology**  
 Brigham Young University - Idaho | GPA: 3.88 | Dec 2022
