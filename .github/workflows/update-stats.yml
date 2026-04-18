@@ -14,20 +14,45 @@ jobs:
           GIST_ID: ${{ vars.GIST_ID }}
           TOKEN: ${{ secrets.GIST_TOKEN }}
         run: |
+          # Fetch repos
           curl -s -H "Authorization: token $TOKEN" \
             https://api.github.com/user/repos?per_page=100 > repos.json
           
+          # Count total repos
           TOTAL=$(jq 'length' repos.json)
           
-          # Count languages
-          LANGUAGES=$(jq -r '.[].language' repos.json | grep -v null | sort | uniq -c | sort -rn | head -10 | awk '{print "- " $2 ": " $1 " repos"}' | tr '\n' '|' | sed 's/|/\n/g')
+          # Get top languages
+          LANGUAGES=$(jq -r '.[].language' repos.json | grep -v null | sort | uniq -c | sort -rn | head -10 | awk '{printf "- %s: %d repos\n", $2, $1}')
           
-          # Create content
-          CONTENT="# My GitHub Stats\n\n📊 **Total Repositories:** $TOTAL\n\n**Top Languages:**\n$LANGUAGES"
+          # Create content file
+          cat > stats.md << 'EOF'
+          # My GitHub Stats
+          
+          📊 **Total Repositories:** $TOTAL
+          
+          **Top Languages:**
+          $LANGUAGES
+          EOF
+          
+          # Read the file and escape it properly for JSON
+          CONTENT=$(jq -Rs . < stats.md)
+          
+          # Create JSON payload
+          cat > payload.json << PAYLOAD
+          {
+            "files": {
+              "github-stats.md": {
+                "content": $CONTENT
+              }
+            }
+          }
+          PAYLOAD
           
           # Update gist
           curl -X PATCH \
             -H "Authorization: token $TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            -d "{\"files\":{\"github-stats.md\":{\"content\":\"$CONTENT\"}}}" \
+            -H "Content-Type: application/json" \
+            -d @payload.json \
             https://api.github.com/gists/$GIST_ID
+            
