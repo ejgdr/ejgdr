@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Get GitHub Stats
         env:
-          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_ID: ${{ vars.GIST_ID }}
           TOKEN: ${{ secrets.GIST_TOKEN }}
         run: |
           curl -s -H "Authorization: token $TOKEN" \
