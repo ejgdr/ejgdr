@@ -2,8 +2,8 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Daily at 2 AM UTC
-  workflow_dispatch:     # Manual trigger
+    - cron: "0 2 * * *"
+  workflow_dispatch:
 
 jobs:
   update-stats:
@@ -14,50 +14,26 @@ jobs:
           GIST_ID: ${{ vars.GIST_ID }}
           TOKEN: ${{ secrets.GIST_TOKEN }}
         run: |
-          # Fetch repos
-          curl -s -H "Authorization: token $TOKEN" \
-            https://api.github.com/user/repos?per_page=100 > repos.json
-          
-          # Count total repos
+          curl -s -H "Authorization: token $TOKEN" https://api.github.com/user/repos?per_page=100 > repos.json
           TOTAL=$(jq 'length' repos.json)
-          
-          # Get top languages
-          LANGUAGES=$(jq -r '.[].language' repos.json | grep -v null | sort | uniq -c | sort -rn | head -10 | awk '{printf "- %s: %d repos\n", $2, $1}')
+          LANGUAGES=$(jq -r '.[].language' repos.json | grep -v null | sort | uniq -c | sort -rn | head -10 | sed 's/^[[:space:]]*//' | awk '{print "- " $2 ": " $1 " repos"}')
           
           # Create content
-          cat > stats.md << "EOF"
+          read -r -d '' CONTENT << 'HEREDOC' || true
           # My GitHub Stats
           
           📊 **Total Repositories:** $TOTAL
           
           **Top Languages:**
           $LANGUAGES
-          EOF
           
-          # Display what we're about to send for debugging
-          echo "Content to send:"
-          cat stats.md
+          *Last updated: $(date -u '+%Y-%m-%d %H:%M UTC')*
+          HEREDOC
           
-          # Read the file and escape it properly for JSON
-          CONTENT=$(jq -Rs . < stats.md)
+          echo "=== CONTENT ==="
+          echo "$CONTENT"
+          echo "==============="
           
-          # Create JSON payload
-          cat > payload.json << PAYLOAD
-          {
-            "files": {
-              "github-stats.md": {
-                "content": $CONTENT
-              }
-            }
-          }
-          PAYLOAD
-          
-          # Update gist
-          curl -X PATCH \
-            -H "Authorization: token $TOKEN" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Content-Type: application/json" \
-            -d @payload.json \
-            https://api.github.com/gists/$GIST_ID
-          
+          ESCAPED=$(echo "$CONTENT" | jq -Rs .)
+          curl -s -X PATCH -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" -d "{\"files\":{\"github-stats.md\":{\"content\":$ESCAPED}}}" https://api.github.com/gists/$GIST_ID | jq .
           echo "✅ Gist updated!"
