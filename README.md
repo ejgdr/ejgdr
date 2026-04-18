@@ -99,6 +99,7 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 ---
 
 ### 📊 GitHub Stats
+[View my GitHub stats](https://gist.github.com/ejgdr/60258b19dd74e75251b4ef9ed80769e8)
 
 ---
 
