@@ -1,5 +1,4 @@
 name: Update GitHub Stats
-
 on:
   schedule:
     - cron: "0 2 * * *"
@@ -14,26 +13,26 @@ jobs:
           GIST_ID: ${{ vars.GIST_ID }}
           TOKEN: ${{ secrets.GIST_TOKEN }}
         run: |
-          curl -s -H "Authorization: token $TOKEN" https://api.github.com/user/repos?per_page=100 > repos.json
+          curl -s -H "Authorization: token $TOKEN" \
+            "https://api.github.com/user/repos?per_page=100" > repos.json
+
           TOTAL=$(jq 'length' repos.json)
-          LANGUAGES=$(jq -r '.[].language' repos.json | grep -v null | sort | uniq -c | sort -rn | head -10 | sed 's/^[[:space:]]*//' | awk '{print "- " $2 ": " $1 " repos"}')
-          
-          # Create content
-          read -r -d '' CONTENT << 'HEREDOC' || true
-          # My GitHub Stats
-          
-          📊 **Total Repositories:** $TOTAL
-          
-          **Top Languages:**
-          $LANGUAGES
-          
-          *Last updated: $(date -u '+%Y-%m-%d %H:%M UTC')*
-          HEREDOC
-          
-          echo "=== CONTENT ==="
-          echo "$CONTENT"
-          echo "==============="
-          
-          ESCAPED=$(echo "$CONTENT" | jq -Rs .)
-          curl -s -X PATCH -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -H "Content-Type: application/json" -d "{\"files\":{\"github-stats.md\":{\"content\":$ESCAPED}}}" https://api.github.com/gists/$GIST_ID | jq .
-          echo "✅ Gist updated!"
+          LANGUAGES=$(jq -r '.[].language' repos.json \
+            | grep -v null \
+            | sort | uniq -c | sort -rn | head -10 \
+            | sed 's/^[[:space:]]*//' \
+            | awk '{print "- " $2 ": " $1 " repos"}')
+
+          UPDATED=$(date -u '+%Y-%m-%d %H:%M UTC')
+
+          CONTENT="# My GitHub Stats\n\nTotal Repositories: $TOTAL\n\nTop Languages:\n$LANGUAGES\n\n*Last updated: $UPDATED*"
+
+          ESCAPED=$(printf '%s' "$CONTENT" | jq -Rs .)
+          curl -s -X PATCH \
+            -H "Authorization: token $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Content-Type: application/json" \
+            -d "{\"files\":{\"github-stats.md\":{\"content\":$ESCAPED}}}" \
+            "https://api.github.com/gists/$GIST_ID" | jq .
+
+          echo "Gist updated!"
