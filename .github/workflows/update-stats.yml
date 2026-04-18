@@ -25,7 +25,7 @@ jobs:
 
           UPDATED=$(date -u '+%Y-%m-%d %H:%M UTC')
 
-          CONTENT="# My GitHub Stats\n\nTotal Repositories: $TOTAL\n\nTop Languages:\n$LANGUAGES\n\n*Last updated: $UPDATED*"
+          CONTENT=$(printf "# My GitHub Stats\n\nTotal Repositories: %s\n\nTop Languages:\n%s\n\n*Last updated: %s*" "$TOTAL" "$LANGUAGES" "$UPDATED")
 
           ESCAPED=$(printf '%s' "$CONTENT" | jq -Rs .)
           curl -s -X PATCH \
