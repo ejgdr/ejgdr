@@ -11,9 +11,10 @@ jobs:
       - name: Get GitHub Stats
         env:
           GIST_ID: ${{ vars.GIST_ID }}
-          TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
         run: |
-          curl -s -H "Authorization: token $TOKEN" \
+          curl -s -H "Authorization: token $STATS_TOKEN" \
             "https://api.github.com/user/repos?per_page=100&type=owner&affiliation=owner" > repos.json
 
           TOTAL=$(jq 'length' repos.json)
@@ -29,7 +30,7 @@ jobs:
 
           ESCAPED=$(printf '%s' "$CONTENT" | jq -Rs .)
           curl -s -X PATCH \
-            -H "Authorization: token $TOKEN" \
+            -H "Authorization: token $GIST_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Content-Type: application/json" \
             -d "{\"files\":{\"github-stats.md\":{\"content\":$ESCAPED}}}" \
