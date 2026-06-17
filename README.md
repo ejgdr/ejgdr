@@ -61,7 +61,7 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 
 ### 🌟 Featured Projects
 
-#### [Pack Whisperer](https://packwhisperer.com) - E-Commerce Platform
+#### Pack Whisperer - E-Commerce Platform
 - Full-stack e-commerce application built with **Flutter** and **Dart**
 - Serverless architecture using **Cloudflare Workers**, **Firebase**, and **Supabase**
 - **Stripe API** integration for secure payment processing
