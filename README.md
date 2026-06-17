@@ -130,8 +130,4 @@ Brigham Young University - Idaho | GPA: 3.88 | Dec 2022
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=About.me&logoColor=white)](https://ejgdr.github.io/portfolio-uni/)
 
 💡 Open to internship opportunities in full-stack development, backend engineering, and QA  
-📍 Location: Rexburg, ID | Open to: Idaho Falls, Utah, Remote
-
----
-
-⭐️ *"You know me by now... I like to understand things"*
+📍 Location: Rexburg, ID | Open to: Remote
