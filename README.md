@@ -4,7 +4,7 @@
 
 I'm a Software Engineering student at BYU-Idaho with a unique background before pivoting to software development. I bring business acumen, analytical thinking, and a passion for building elegant solutions to complex problems.
 
-🎯 **Currently seeking Summer/Fall 2026 internships** in full-stack development, backend engineering, or QA roles (Idaho, Utah, or remote)
+🎯 **Currently Fall 2026 internships** in full-stack development, backend engineering, or QA roles (Rexburg, ID or remote)
 
 ---
 
