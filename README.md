@@ -4,14 +4,14 @@
 
 I'm a Software Engineering student at BYU-Idaho with a unique background before pivoting to software development. I bring business acumen, analytical thinking, and a passion for building elegant solutions to complex problems.
 
-🎯 **Currently Fall 2026 internships** in full-stack development, backend engineering, or QA roles (Rexburg, ID or remote)
+🎯 **Interniships or Employment** in full-stack development, backend engineering, or QA roles (Rexburg, ID or remote)
 
 ---
 
 ### 🚀 What I'm Working On
 
-- **CoreStore** - React/Supabase household inventory management app for emergency preparedness planning (Senior Capstone Project)
-- **Pack Whisperer** - E-commerce platform built with Flutter, Firebase, and Stripe payment processing
+- **CoreStore** - React/Supabase household inventory management app for emergency preparedness planning (Senior Capstone Project). Update: Website component + Demo option in both Mobile and Website ends 
+- **Portfolio** - Update: Use of agents, with access to selected projects or their demos
 - Preparing for **Quality Assurance certification** to complement my development skills
 - Deepening my understanding of DevOps practices and CI/CD pipelines
 
