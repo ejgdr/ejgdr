@@ -127,7 +127,6 @@ Brigham Young University - Idaho | GPA: 3.88 | Dec 2022
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ema-guillen/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:emajguillen@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=About.me&logoColor=white)](https://ejgdr.github.io/portfolio-uni/)
 
 💡 Open to internship opportunities in full-stack development, backend engineering, and QA  
 📍 Location: Rexburg, ID | Open to: Remote
