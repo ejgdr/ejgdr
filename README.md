@@ -61,13 +61,6 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 
 ### 🌟 Featured Projects
 
-#### Pack Whisperer - E-Commerce Platform
-- Full-stack e-commerce application built with **Flutter** and **Dart**
-- Serverless architecture using **Cloudflare Workers**, **Firebase**, and **Supabase**
-- **Stripe API** integration for secure payment processing
-- Deployed to production with both web and Android platforms
-- **Tech:** Flutter, Firebase, Cloudflare, Supabase, PostgreSQL, Stripe
-
 #### CoreStore - Household Inventory Management
 - Senior capstone project for emergency preparedness planning
 - Built with **React** and **Supabase** backend
@@ -75,12 +68,12 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 - 12-week development timeline with Agile methodology
 - **Tech:** React, Supabase, PostgreSQL
 
-#### Idle Game - Crypto Mining Simulator
-- Vanilla JavaScript idle game with live statistics and charts
-- LocalStorage-based save/load system for persistent game state
-- Integrated **ApexCharts** for real-time data visualization
-- Multiple view management system (Main, Upgrades, Live Stats)
-- **Tech:** JavaScript, HTML5, CSS3, ApexCharts
+#### Pack Whisperer - E-Commerce Platform
+- Full-stack e-commerce application built with **Flutter** and **Dart**
+- Serverless architecture using **Cloudflare Workers**, **Firebase**, and **Supabase**
+- **Stripe API** integration for secure payment processing
+- Deployed to production with both web and Android platforms
+- **Tech:** Flutter, Firebase, Cloudflare, Supabase, PostgreSQL, Stripe
 
 #### Chess Game & Orbital Simulator
 - Object-oriented **C++** applications demonstrating advanced programming concepts
