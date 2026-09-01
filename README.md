@@ -61,6 +61,13 @@ I'm a Software Engineering student at BYU-Idaho with a unique background before 
 
 ### 🌟 Featured Projects
 
+#### Cash Flow Compass - Net-worth tracker
+- A personal net-worth tracker built on dated balance snapshots
+- It is a tracker, not a budgeting app
+- My own API layer, schema and migrations, OAuth configuration, and a server-side Plaid token exchange with access tokens encrypted at rest.
+- Every pull request is gated on build, lint, typecheck, unit and end-to-end tests before it can deploy
+- **Tech:** Next.js 16, TypeScript, Prisma 7, PostgreSQL, Auth.js, Plaid
+
 #### CoreStore - Household Inventory Management
 - Senior capstone project for emergency preparedness planning
 - Built with **React** and **Supabase** backend
@@ -120,6 +127,7 @@ Brigham Young University - Idaho | GPA: 3.88 | Dec 2022
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ema-guillen/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:emajguillen@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-black)](https://ejgdr.github.io/portfolio-uni/)
 
 💡 Open to internship opportunities in full-stack development, backend engineering, and QA  
 📍 Location: Rexburg, ID | Open to: Remote
